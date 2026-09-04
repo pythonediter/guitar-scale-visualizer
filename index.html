@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gitarren Skalen Visualisierer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎸 Gitarren Skalen Visualisierer</h1>
+            <p>Visualisiere Tonleitern, Pentatonik, Blues-Scala und Arpeggios auf dem Griffbrett</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="rootNote">Grundnote:</label>
+                <select id="rootNote">
+                    <option value="C">C</option>
+                    <option value="C#">C# / Db</option>
+                    <option value="D">D</option>
+                    <option value="D#">D# / Eb</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="F#">F# / Gb</option>
+                    <option value="G">G</option>
+                    <option value="G#">G# / Ab</option>
+                    <option value="A">A</option>
+                    <option value="A#">A# / Bb</option>
+                    <option value="B">B</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="scaleType">Skalen-Typ:</label>
+                <select id="scaleType">
+                    <option value="major">Dur-Skala</option>
+                    <option value="minor">Moll-Skala (Natürlich)</option>
+                    <option value="harmonic-minor">Moll-Skala (Harmonisch)</option>
+                    <option value="melodic-minor">Moll-Skala (Melodisch)</option>
+                    <option value="pentatonic-major">Pentatonische Dur</option>
+                    <option value="pentatonic-minor">Pentatonische Moll</option>
+                    <option value="blues">Blues-Scala</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="theory-panel">
+                <h2>Musiktheorie</h2>
+                
+                <div class="theory-section">
+                    <h3>Tonleiter</h3>
+                    <div id="scaleNotes" class="notes-display"></div>
+                </div>
+
+                <div class="theory-section">
+                    <h3>Intervalle</h3>
+                    <div id="scaleIntervals" class="intervals-display"></div>
+                </div>
+
+                <div class="theory-section">
+                    <h3>Arpeggios (Akkord-Töne)</h3>
+                    <div id="arpeggios" class="arpeggios-display"></div>
+                </div>
+
+                <div class="theory-section">
+                    <h3>Akkorde</h3>
+                    <div id="chords" class="chords-display"></div>
+                </div>
+            </div>
+
+            <div class="fretboard-panel">
+                <h2>Gitarren-Griffbrett</h2>
+                <div id="fretboard" class="fretboard"></div>
+                <div class="fretboard-legend">
+                    <span class="legend-item"><span class="dot root"></span> Grundnote</span>
+                    <span class="legend-item"><span class="dot scale"></span> Skalen-Ton</span>
+                    <span class="legend-item"><span class="dot arpeggio"></span> Arpeggio-Ton</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

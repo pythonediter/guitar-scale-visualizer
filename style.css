@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header p {
+    font-size: 1.1em;
+    opacity: 0.95;
+}
+
+.controls {
+    padding: 30px;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.control-group label {
+    font-weight: 600;
+    color: #333;
+    min-width: 120px;
+}
+
+.control-group select {
+    padding: 10px 15px;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    background: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 250px;
+}
+
+.control-group select:hover {
+    border-color: #764ba2;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.control-group select:focus {
+    outline: none;
+    border-color: #764ba2;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    padding: 30px;
+    background: #fff;
+}
+
+@media (max-width: 1200px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.theory-panel, .fretboard-panel {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+}
+
+.theory-panel h2, .fretboard-panel h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.theory-section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.theory-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.theory-section h3 {
+    color: #764ba2;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+}
+
+.notes-display, .intervals-display, .arpeggios-display, .chords-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.note-badge, .interval-badge, .arpeggio-badge, .chord-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95em;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.note-badge:hover, .interval-badge:hover, .arpeggio-badge:hover, .chord-badge:hover {
+    transform: translateY(-3px);
+}
+
+.interval-badge {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.arpeggio-badge {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.chord-badge {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+/* Fretboard Styles */
+.fretboard {
+    background: linear-gradient(90deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid #654321;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow-x: auto;
+}
+
+.fret-board-container {
+    display: inline-block;
+    min-width: 100%;
+}
+
+.string-row {
+    display: flex;
+    margin-bottom: 12px;
+    gap: 8px;
+    align-items: center;
+}
+
+.string-label {
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+    min-width: 40px;
+    text-align: center;
+}
+
+.fret {
+    width: 50px;
+    height: 40px;
+    border: 2px solid #D4A574;
+    background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.fret:hover {
+    background: #9a5729;
+    transform: scale(1.05);
+}
+
+.fret.open {
+    width: 45px;
+    height: 35px;
+    background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+    border-color: #daa520;
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+.dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.7em;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dot.root {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    border: 2px solid #ff4757;
+    width: 32px;
+    height: 32px;
+}
+
+.dot.scale {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 2px solid #667eea;
+}
+
+.dot.arpeggio {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border: 2px solid #00f2fe;
+}
+
+.fret-number {
+    position: absolute;
+    top: -25px;
+    font-size: 0.8em;
+    color: #D4A574;
+    font-weight: bold;
+    display: none;
+}
+
+.string-row:first-child .fret-number {
+    display: block;
+}
+
+.fretboard-legend {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    font-weight: 500;
+}
+
+.legend-item .dot {
+    width: 20px;
+    height: 20px;
+    font-size: 0.6em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .control-group {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .control-group select {
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .fret {
+        width: 40px;
+        height: 35px;
+    }
+
+    .fretboard-legend {
+        gap: 15px;
+    }
+}
